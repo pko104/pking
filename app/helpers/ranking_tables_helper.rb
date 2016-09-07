@@ -1,0 +1,2 @@
+module RankingTablesHelper
+end

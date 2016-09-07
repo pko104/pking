@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PokéKing</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= include_gon(:watch => true) %>
+  <%= Gon::Base.render_data %>
+</head>
+<body>
+<header>
+  <img id="pikaBall" src="http://orig00.deviantart.net/81ae/f/2013/185/2/6/pikachu_png_by_saeuchiha-d6c1auc.png">
+  <div class="name">Pokémon GO <span class="fancy-font">Leaderboards</span></div>
+  <div class="titles fancy-font">PokéKing</div>
+  <div class="add-pokemon fancy-font">
+    <button id="pokeBallButton" type="button" data-toggle="modal" data-target="#myModal">
+      <div id="pokeBall"></div>
+    </button>
+    &nbsp;Add Your Pokémon
+  </div>
+  <div class="header-border grad-green">
+  </div>
+
+  <!-- Modal -->
+  <div class="modal grad-green-opaque" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog grad-green-opaque" role="document">
+      <div id="pokemonModal" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+          <div id="modalHeader">Add Your Pokemon</div>
+          <div id="modalHeader"><%= @pokemon_string %></div>
+        </div>
+        <div class="modal-body">
+
+          <form id="form1" runat="server">
+            <input type='file' id="imgInp" />
+            <img id="uploadedPokemon" style="width:60%"/>
+          </form>
+
+          <h1>hi<div id="addCP"> <%= @pokemon_CP %> </div></h1>
+
+          <%=form_for @new_caught_pokemon do |f|%>
+
+            <fieldset>
+
+
+
+               <div class="event-field">
+               <%= f.label :username, "UserName"%>
+               <%= f.text_field :username%>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :combat_power, "Combat Power"%>
+               <%= f.text_field :combat_power%>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :pokemon_name, "Pokemon Name"%>
+               <%= f.text_field :pokemon_name%>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :health_power, "HP"%>
+               <%= f.text_field :health_power%>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :location, "Location"%>
+               <%= f.select :location, options_for_select([['a','a'],['b','b'],['c','c']], :selected => params[:location]), {}, { :class => 'span3 controls controls-row' } %>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :team_color, "Team Color"%>
+               <%= f.text_field :team_color%>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :first_move, "First Move"%>
+               <%= f.text_field :first_move%>
+               </div>
+
+               <div class="event-field">
+               <%= f.label :second_move, "Second Move"%>
+               <%= f.text_field :second_move%>
+               </div>
+
+                <button type="submit" value="send">Submit</button>
+
+            </fieldset>
+          <%end%>
+
+        </div>
+<!--         <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<%= yield %>
+<footer>
+</footer>
+
+</body>
+</html>

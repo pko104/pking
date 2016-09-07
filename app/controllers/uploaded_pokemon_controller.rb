@@ -1,0 +1,2 @@
+class UploadedPokemonController < ApplicationController
+end

@@ -1,0 +1,334 @@
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Place all the styles related to the RankingTables controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+* Custom variables
+*/
+$main-font: 'Lato', sans-serif;
+$sub-font: 'Montserrat', sans-serif;
+$fancy-font: 'Kaushan Script', cursive;
+$font-size: 16px;
+
+$black: #000;
+$white: #FFF;
+$grey: #ababab;
+$mediumgrey: #9b9b9b;
+$lightgrey: #eeeeee;
+$blue: #3466a1;
+$teal: #1d8a9f;
+$light_teal: #68d6d3;
+$honeydew: #f1fff0;
+$seagreen: #24ccaa;
+$lightgreen: #a2db95;
+
+
+$padding: 10px;
+$margin: 10px;
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+    color: $grey;
+    font-size: $font-size;
+}
+
+header {
+  background-color: #cbede8;
+  max-height: 170px;
+  height: 170px;
+  overflow: hidden;
+}
+
+img {
+  top: 0px;
+  width: 1200px;
+
+  @media screen and (min-width: $screen-lg) {
+      top: auto;
+      left: auto;
+      margin: 0;
+      width: 100%;
+  }
+}
+
+#pikaBall{
+  width: 300px;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#topPokemon{
+  position: relative;
+  width: 45%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.name {
+  font-size: 21px;
+  font-family: $main-font;
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  color: $lightgreen;
+}
+
+.add-pokemon {
+  font-size: 21px;
+  font-family: $main-font;
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  color: $seagreen;
+}
+
+#pokeBall{
+  background: url(http://img03.deviantart.net/49cf/i/2011/068/a/c/pokeball_desktop_icon_by_beccerberry-d3b98cf.png);
+  background-size: 40px;
+  opacity: .5;
+  width: 40px;
+  height: 40px;
+}
+
+#pokeBall:hover{
+  opacity: .15
+}
+
+#pokeBallButton{
+  background:transparent;
+  border: none;
+  top:15px;
+  outline: none;
+}
+
+#pokemonModal{
+  background: $honeydew;
+}
+
+.titles {
+  position: absolute;
+  color: #63d4a0;
+  text-shadow: 2px 2px $teal;
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+
+  @media screen and (min-width: $screen-lg) {
+      bottom: 12%;
+  }
+}
+
+h1, h2 {
+  width: 100%;
+  color: $white;
+  margin: 0;
+}
+
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 0.06em;
+  margin-bottom: $margin;
+
+  span {
+      display: block;
+
+      @media screen and (min-width: $screen-md) {
+          display: inline;
+      }
+  }
+}
+
+h2 {
+  font-size: 16px;
+  width: 70%;
+  margin: 0 auto;
+
+  @media screen and (min-width: $screen-lg) {
+      width: 100%;
+      margin: 0;
+  }
+}
+
+.fancy-font {
+    font-family: $fancy-font;
+}
+
+.header-border{
+  width: 100%;
+  top: 160px;
+  height: 10px;
+}
+
+.grad-green{
+  background: $seagreen;
+  background: -webkit-linear-gradient(left, $lightgreen , $seagreen);
+  background: -o-linear-gradient(right, $lightgreen , $seagreen);
+  background: -moz-linear-gradient(right, $lightgreen , $seagreen);
+  background: linear-gradient(to right, $lightgreen , $seagreen);
+}
+
+.grad-green-opaque{
+  background: $seagreen;
+  background: -webkit-linear-gradient(left, rgba(162,219,149,.5) , rgba(36,204,170,.5));
+  background: -o-linear-gradient(right, rgba(162,219,149,.5) , rgba(36,204,170,.5));
+  background: -moz-linear-gradient(right, rgba(162,219,149,.5) , rgba(36,204,170,.5));
+  background: linear-gradient(to right, rgba(162,219,149,.5) , rgba(36,204,170,.5));
+}
+
+.instagram-wrap {
+  background: $honeydew;
+}
+
+.instagram-content {
+  h3 {
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      padding: $padding*5 0;
+      color: darken($lightgrey, 20%);
+  }
+}
+
+#modalHeader{
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  color: darken($lightgrey, 20%);
+  width: 75%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.close-modal{
+  float: right;
+  background: transparent;
+}
+
+.photo-box {
+  margin: 0 0 $margin*3 0;
+
+  .image-wrap {
+      img {
+        position: relative;
+        width: 100%;
+      }
+
+      .likes {
+          position: absolute;
+          bottom: 5px;
+          left: 15px;
+          padding: $padding/2;
+          background: $black;
+          background: rgba($black, 0.4);
+          color: $white;
+      }
+  }
+  .description {
+      font-family: $sub-font;
+      font-size: 12px;
+      background: $white;
+      color: $mediumgrey;
+      letter-spacing: 1px;
+      padding: $padding*1.5;
+      height: 75px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+  }
+}
+
+.center-box{
+     margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+footer {
+    background: $white;
+    padding: $padding*3 0;
+    text-align: center;
+
+    @media screen and (min-width: $screen-lg) {
+        padding: $padding*10 0;
+    }
+
+    h4 {
+        font-size: 36px;
+        text-align: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .about-text {
+        padding: 0 $padding*3;
+
+        @media screen and (min-width: $screen-lg) {
+            width: 650px;
+            margin: 0 auto;
+        }
+    }
+
+    .contact-now-btn {
+        display: inline-block;
+        width: 70%;
+        padding: $padding*2 $padding*5;
+        margin-top: $margin*2;
+        color: $white;
+        background: $grey;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        @media screen and (min-width: $screen-md) {
+            width: 60%;
+        }
+
+        @media screen and (min-width: $screen-lg) {
+            width: 20%;
+            margin-top: $margin*5;
+        }
+
+        &:hover {
+            background: lighten($grey, 5%);
+        }
+    }
+}
+
+.row{
+
+  margin-left: 25px !important;
+  margin-right: 25px !important;
+
+}
+
+
+/*
+* Override Bootstrap variables
+*/
+$font-family-sans-serif: $main-font;
+
+@import 'bootstrap';
