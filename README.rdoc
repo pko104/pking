@@ -2,5 +2,9 @@ PokeKing
 
 PokemonGO Leaderboards
 
+Using Tessaract OCR
 
--![Main Page](https://postimg.org/image/wuyc78ycr/)
+Allows user to upload a photo via computer of phone and parses all the data from the image and sort them into a database. Ranking each pokemon by CP level from highest to lowest on the leaderboards.
+
+
+-![Main Page](https://s9.postimg.io/jqsruk6b1/Screenshot_2016_09_07_12_58_10.png)
